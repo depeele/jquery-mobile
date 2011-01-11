@@ -70,9 +70,6 @@ $.event.special.tap = {
 				
 				var moved = false,
 					touching = true,
-					/* :XXX: Needed to avoid triggering a 'tap' when the
-					 *       start target differs from the stop target.
-					 */
 					origTarget = event.target,
 					origPos = [ event.pageX, event.pageY ],
 					originalType,
@@ -101,8 +98,8 @@ $.event.special.tap = {
 						clearTimeout( timer );
 						touching = false;
 						
-						/* :XXX: ONLY trigger a 'tap' event if the start target
-						 * 		 is the same as the stop target.
+						/* ONLY trigger a 'tap' event if the start target is
+						 * the same as the stop target.
 						 */
 						if ( !moved && (origTarget == event.target)) {
 							originalType = event.type;
